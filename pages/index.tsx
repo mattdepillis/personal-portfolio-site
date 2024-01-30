@@ -1,23 +1,46 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 import { NotionPage } from '@/components/NotionPage'
 import { domain } from '@/lib/config'
+
 import { resolveNotionPage } from '@/lib/resolve-notion-page'
+
+// import { HomeContainer } from '../styles/containers'
+
+// import Page from '../components/Page'
+
 
 export const getStaticProps = async () => {
   try {
-    const props = await resolveNotionPage(domain)
-
-    return { props, revalidate: 10 }
+    const homePageData = await resolveNotionPage(domain)
+    return { props: { homePageData } }
   } catch (err) {
     console.error('page error', domain, err)
-
-    // we don't want to publish the error version of this page, so
-    // let next.js know explicitly that incremental SSG failed
     throw err
   }
 }
 
-export default function NotionDomainPage(props) {
-  return <NotionPage {...props} />
+const Home = ({ homePageData }) => {
+  const [homePage, setHomePage] = useState(undefined)
+
+  useEffect(() => {
+    setHomePage(homePageData)
+  }, [homePageData])
+
+  return (
+    // <>
+    //     {homePage &&
+    //       <HomeContainer>
+    //         <Page
+    //           page={homePage}
+    //         />
+    //       </HomeContainer>
+    //     }
+    // </>
+    <>
+      <NotionPage {...homePage} />
+    </>
+  )
 }
+
+export default Home
