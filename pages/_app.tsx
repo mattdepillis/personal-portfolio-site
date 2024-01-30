@@ -1,12 +1,3 @@
-// global styles shared across the entire site
-import * as React from 'react'
-import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
-
-import * as Fathom from 'fathom-client'
-// used for rendering equations (optional)
-import 'katex/dist/katex.min.css'
-import posthog from 'posthog-js'
 // used for code syntax highlighting (optional)
 import 'prismjs/themes/prism-coy.css'
 // core styles shared by all of react-notion-x (required)
@@ -19,47 +10,29 @@ import 'styles/notion.css'
 // global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
 
-import { bootstrap } from '@/lib/bootstrap-client'
-import {
-  fathomConfig,
-  fathomId,
-  isServer,
-  posthogConfig,
-  posthogId
-} from '@/lib/config'
+import 'prismjs'
+import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-python'
+import '../styles/prism-theme.css'
 
-if (!isServer) {
-  bootstrap()
-}
+// import 'rc-dropdown/assets/index.css'
+import 'katex/dist/katex.min.css'
 
-export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter()
+// import 'react-static-tweets/styles.css'
 
-  React.useEffect(() => {
-    function onRouteChangeComplete() {
-      if (fathomId) {
-        Fathom.trackPageview()
-      }
+// * custom styles
+// import '../styles/globals.css'
+// import '../styles/custom-css/notion-collections.css'
+// import '../styles/custom-css/responsive-page-layout.css'
+// import '../styles/notion.css'
 
-      if (posthogId) {
-        posthog.capture('$pageview')
-      }
-    }
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
-    if (fathomId) {
-      Fathom.load(fathomId, fathomConfig)
-    }
+const PortfolioSite = ({ Component, pageProps }) =>
+  <Component {...pageProps} />
 
-    if (posthogId) {
-      posthog.init(posthogId, posthogConfig)
-    }
-
-    router.events.on('routeChangeComplete', onRouteChangeComplete)
-
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete)
-    }
-  }, [router.events])
-
-  return <Component {...pageProps} />
-}
+export default PortfolioSite
