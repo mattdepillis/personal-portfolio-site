@@ -16,15 +16,13 @@ import * as config from '@/lib/config'
 import * as types from '@/lib/types'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
-import { searchNotion } from '@/lib/search-notion'
+import { parsePageId } from 'notion-utils'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
-import { GitHubShareButton } from './GitHubShareButton'
 import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
-import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
@@ -151,24 +149,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const router = useRouter()
   const lite = useSearchParam('lite')
 
-  const components = React.useMemo(
-    () => ({
-      nextImage: Image,
-      nextLink: Link,
-      Code,
-      Collection,
-      Equation,
-      Pdf,
-      Modal,
-      Tweet,
-      Header: NotionPageHeader,
-      propertyLastEditedTimeValue,
-      propertyTextValue,
-      propertyDateValue
-    }),
-    []
-  )
-
   // lite mode is for oembed
   const isLiteMode = lite === 'true'
 
@@ -185,20 +165,29 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
 
-  // const isRootPage =
-  //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+  const isRootPage =
+    parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
+
+  const components = React.useMemo(() => ({
+    nextImage: Image,
+    nextLink: Link,
+    Code,
+    Collection,
+    Equation,
+    Pdf,
+    Modal,
+    Tweet,
+    Header: (props) => <NotionPageHeader {...props} isRootPage={isRootPage} />,
+    propertyLastEditedTimeValue,
+    propertyTextValue,
+    propertyDateValue
+  }), [isRootPage])
+
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
-
-  const pageAside = React.useMemo(
-    () => (
-      <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
-    ),
-    [block, recordMap, isBlogPost]
-  )
 
   const footer = React.useMemo(() => <Footer />, [])
 
@@ -276,12 +265,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapImageUrl}
-        searchNotion={config.isSearchEnabled ? searchNotion : null}
-        pageAside={pageAside}
         footer={footer}
       />
-
-      <GitHubShareButton />
     </>
   )
 }
