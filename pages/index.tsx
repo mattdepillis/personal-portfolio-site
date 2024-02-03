@@ -1,13 +1,12 @@
+// library imports
 import { useEffect, useState } from 'react'
 
-import { NotionPage } from '@/components/NotionPage'
-import { domain } from '@/lib/config'
+// lib vars + methods
+import { domain } from '@/lib/config/config'
+import { resolveNotionPage } from '@/lib/pagesAndUrls/resolve-notion-page'
 
-import { resolveNotionPage } from '@/lib/resolve-notion-page'
-
-// import { HomeContainer } from '../styles/containers'
-
-// import Page from '../components/Page'
+// custom components
+import { NotionPage } from '@/components/Pages/NotionPage'
 
 
 export const getStaticProps = async () => {
@@ -27,20 +26,7 @@ const Home = ({ homePageData }) => {
     setHomePage(homePageData)
   }, [homePageData])
 
-  return (
-    // <>
-    //     {homePage &&
-    //       <HomeContainer>
-    //         <Page
-    //           page={homePage}
-    //         />
-    //       </HomeContainer>
-    //     }
-    // </>
-    <>
-      <NotionPage {...homePage} />
-    </>
-  )
+  return <NotionPage {...homePage} />
 }
 
 export default Home
