@@ -5,8 +5,8 @@ import { getPageImageUrls, normalizeUrl } from 'notion-utils'
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
 
-import { defaultPageCover, defaultPageIcon } from './config'
-import { db } from './db'
+import { defaultPageCover, defaultPageIcon } from '../config/config'
+import { db } from '../cache/db'
 import { mapImageUrl } from './map-image-url'
 
 export async function getPreviewImageMap(
