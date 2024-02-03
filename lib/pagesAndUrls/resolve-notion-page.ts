@@ -1,11 +1,12 @@
 import { ExtendedRecordMap } from 'notion-types'
 import { parsePageId } from 'notion-utils'
 
-import * as acl from './acl'
-import { environment, pageUrlAdditions, pageUrlOverrides, site } from './config'
-import { db } from './db'
+
+import { environment, pageUrlAdditions, pageUrlOverrides, site } from '../config/config'
+import { db } from '../cache/db'
 import { getSiteMap } from './get-site-map'
 import { getPage } from './notion'
+import { pageAcl } from '../acl/acl'
 
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
@@ -87,5 +88,5 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
   }
 
   const props = { site, recordMap, pageId }
-  return { ...props, ...(await acl.pageAcl(props)) }
+  return { ...props, ...(await pageAcl(props)) }
 }

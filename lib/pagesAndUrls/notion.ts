@@ -7,9 +7,9 @@ import {
   isPreviewImageSupportEnabled,
   navigationLinks,
   navigationStyle
-} from './config'
-import { notion } from './notion-api'
-import { getPreviewImageMap } from './preview-images'
+} from '../config/config'
+import { notion } from '../utils/notion-api'
+import { getPreviewImageMap } from '../images/preview-images'
 
 const getNavigationLinkPages = pMemoize(
   async (): Promise<ExtendedRecordMap[]> => {

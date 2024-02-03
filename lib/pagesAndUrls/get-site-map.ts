@@ -1,24 +1,28 @@
 import { getAllPagesInSpace, uuidToId, getPageProperty } from 'notion-utils'
 import pMemoize from 'p-memoize'
 
-import * as config from './config'
-import * as types from './types'
-import { includeNotionIdInUrls } from './config'
+import {
+  includeNotionIdInUrls,
+  rootNotionPageId,
+  rootNotionSpaceId,
+  site
+} from '../config/config'
 import { getCanonicalPageId } from './get-canonical-page-id'
-import { notion } from './notion-api'
+import { notion } from '../utils/notion-api'
+import { SiteMap } from '../types/site'
 
 const uuid = !!includeNotionIdInUrls
 
-export async function getSiteMap(): Promise<types.SiteMap> {
+export async function getSiteMap(): Promise<SiteMap> {
   const partialSiteMap = await getAllPages(
-    config.rootNotionPageId,
-    config.rootNotionSpaceId
+    rootNotionPageId,
+    rootNotionSpaceId
   )
 
   return {
-    site: config.site,
+    site: site,
     ...partialSiteMap
-  } as types.SiteMap
+  } as SiteMap
 }
 
 const getAllPages = pMemoize(getAllPagesImpl, {
@@ -28,7 +32,7 @@ const getAllPages = pMemoize(getAllPagesImpl, {
 async function getAllPagesImpl(
   rootNotionPageId: string,
   rootNotionSpaceId: string
-): Promise<Partial<types.SiteMap>> {
+): Promise<Partial<SiteMap>> {
   const getPage = async (pageId: string, ...args) => {
     console.log('\nnotion getPage', uuidToId(pageId))
     return notion.getPage(pageId, ...args)
