@@ -9,12 +9,9 @@ import { PostHogConfig } from 'posthog-js'
 
 import { getEnv, getSiteConfig } from './get-config-value'
 import { NavigationLink } from './site-config'
-import {
-  NavigationStyle,
-  PageUrlOverridesInverseMap,
-  PageUrlOverridesMap,
-  Site
-} from './types'
+import { NavigationStyle } from '../types/utils'
+import { PageUrlOverridesInverseMap, PageUrlOverridesMap } from '../types/urls'
+import { Site } from '../types/site'
 
 export const rootNotionPageId: string = parsePageId(
   getSiteConfig('rootNotionPageId'),

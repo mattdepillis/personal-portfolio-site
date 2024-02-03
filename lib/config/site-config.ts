@@ -1,4 +1,6 @@
-import * as types from './types'
+// imports
+import { NavigationStyle } from "../types/utils"
+import { PageUrlOverridesMap } from "../types/urls"
 
 export interface SiteConfig {
   rootNotionPageId: string
@@ -28,10 +30,10 @@ export interface SiteConfig {
   isSearchEnabled?: boolean
 
   includeNotionIdInUrls?: boolean
-  pageUrlOverrides?: types.PageUrlOverridesMap
-  pageUrlAdditions?: types.PageUrlOverridesMap
+  pageUrlOverrides?: PageUrlOverridesMap
+  pageUrlAdditions?: PageUrlOverridesMap
 
-  navigationStyle?: types.NavigationStyle
+  navigationStyle?: NavigationStyle
   navigationLinks?: Array<NavigationLink>
 }
 
