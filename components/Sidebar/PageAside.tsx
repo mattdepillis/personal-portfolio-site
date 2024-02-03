@@ -1,8 +1,6 @@
-import * as React from 'react'
-
 import { Block, ExtendedRecordMap } from 'notion-types'
 
-import { getPageTweet } from '@/lib/get-page-tweet'
+import { getPageTweet } from '@/lib/utils/get-page-tweet'
 
 import { PageActions } from './PageActions'
 import { PageSocial } from './PageSocial'
