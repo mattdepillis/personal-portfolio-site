@@ -6,10 +6,10 @@ import cs from 'classnames'
 import { useNotionContext } from 'react-notion-x'
 
 // custom types
-import { NavLink } from '@/lib/customTypes/header'
+import { NavLink } from '@/lib/types/header'
 
 // custom styles
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 /**
  * TODO function comment here - note that this is for custom navigation if I decide to go that route

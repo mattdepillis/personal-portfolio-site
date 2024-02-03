@@ -7,7 +7,7 @@ import { navigationLinks } from '@/lib/config/config'
 
 // custom components
 import CustomNavLinks from './CustomNavLinks'
-import ToggleThemeButton from './ToggleThemeButton'
+import ToggleThemeButton from '../Theme/ToggleThemeButton'
 
 
 export const NotionPageHeader: React.FC<{
