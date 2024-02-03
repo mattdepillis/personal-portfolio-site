@@ -7,10 +7,10 @@ import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
 import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
 
 // custom lib methods
-import { useDarkMode } from '@/lib/use-dark-mode'
+import { useDarkMode } from '@/lib/utils/use-dark-mode'
 
 // custom styling
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 
 const ToggleThemeButton: React.FC = () => {
