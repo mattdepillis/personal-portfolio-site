@@ -1,10 +1,11 @@
-import * as React from 'react'
+// library imports
+import { useMemo } from 'react'
+import cs from 'classnames'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import cs from 'classnames'
 import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
@@ -12,19 +13,19 @@ import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 import { useSearchParam } from 'react-use'
 
-import * as config from '@/lib/config'
-import * as types from '@/lib/types'
-import { mapImageUrl } from '@/lib/map-image-url'
-import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
+import * as config from '@/lib/config/config'
+import { mapImageUrl } from '@/lib/images/map-image-url'
+import { getCanonicalPageUrl, mapPageUrl } from '@/lib/pagesAndUrls/map-page-url'
+import { PageProps } from '@/lib/types/pages'
 import { parsePageId } from 'notion-utils'
-import { useDarkMode } from '@/lib/use-dark-mode'
+import { useDarkMode } from '@/lib/utils/use-dark-mode'
 
-import { Footer } from './Footer'
-import { Loading } from './Loading'
-import { NotionPageHeader } from './NotionPageHeader'
+import { Footer } from '../Footer/Footer'
+import { Loading } from '../Loading/Loading'
+import { NotionPageHeader } from '../Header/NotionPageHeader'
 import { Page404 } from './Page404'
-import { PageHead } from './PageHead'
-import styles from './styles.module.css'
+import { PageHead } from '../Header/PageHead'
+import styles from '../styles.module.css'
 
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
@@ -140,7 +141,7 @@ const propertyTextValue = (
   return defaultFn()
 }
 
-export const NotionPage: React.FC<types.PageProps> = ({
+export const NotionPage: React.FC<PageProps> = ({
   site,
   recordMap,
   error,
@@ -154,7 +155,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const { isDarkMode } = useDarkMode()
 
-  const siteMapPageUrl = React.useMemo(() => {
+  const siteMapPageUrl = useMemo(() => {
     const params: any = {}
     if (lite) params.lite = lite
 
@@ -168,7 +169,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const isRootPage =
     parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
 
-  const components = React.useMemo(() => ({
+  const components = useMemo(() => ({
     nextImage: Image,
     nextLink: Link,
     Code,
@@ -189,7 +190,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  const footer = React.useMemo(() => <Footer />, [])
+  const footer = useMemo(() => <Footer />, [])
 
   if (router.isFallback) {
     return <Loading />

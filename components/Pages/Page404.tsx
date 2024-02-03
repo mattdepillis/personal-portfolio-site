@@ -1,11 +1,9 @@
-import * as React from 'react'
+import { PageProps } from '@/lib/types/pages'
 
-import * as types from '@/lib/types'
+import { PageHead } from '../Header/PageHead'
+import styles from '../styles.module.css'
 
-import { PageHead } from './PageHead'
-import styles from './styles.module.css'
-
-export const Page404: React.FC<types.PageProps> = ({ site, pageId, error }) => {
+export const Page404: React.FC<PageProps> = ({ site, pageId, error }) => {
   const title = site?.name || 'Notion Page Not Found'
 
   return (

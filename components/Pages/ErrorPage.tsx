@@ -1,7 +1,9 @@
-import * as React from 'react'
+// custom components
+import { PageHead } from '../Header/PageHead'
 
-import { PageHead } from './PageHead'
-import styles from './styles.module.css'
+// styling
+import styles from '../styles.module.css'
+
 
 export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
   const title = 'Error'
