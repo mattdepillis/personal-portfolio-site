@@ -1,7 +1,7 @@
 import { getPageTitle, parsePageId } from 'notion-utils'
 
-import * as config from './config'
-import { getPage } from './notion'
+import { author, host, name as configName } from '../config/config'
+import { getPage } from '../pagesAndUrls/notion'
 
 export const oembed = async ({
   url,
@@ -14,13 +14,10 @@ export const oembed = async ({
   maxHeight?: number
   dark?: boolean
 }) => {
-  // TODO: handle pages with no pageId via domain
   const pageId = parsePageId(url)
 
-  let title = config.name
-  let authorName = config.author
-
-  // TODO: handle errors gracefully
+  let title = configName
+  let authorName = author
 
   const page = await getPage(pageId)
   const pageTitle = getPageTitle(page)
@@ -39,7 +36,7 @@ export const oembed = async ({
   }
 
   const query = new URLSearchParams(params).toString()
-  const embedUrl = `${config.host}/${pageId}?${query}`
+  const embedUrl = `${host}/${pageId}?${query}`
   const defaultWidth = 800
   const defaultHeight = 600
   const width = maxWidth ? Math.min(maxWidth, defaultWidth) : defaultWidth
@@ -48,15 +45,11 @@ export const oembed = async ({
   return {
     version: '1.0',
     type: 'rich',
-    provider_name: config.author,
-    provider_url: config.host,
+    provider_name: author,
+    provider_url: host,
     title,
     author_name: authorName,
     url,
-    // TODO
-    // thumbnail_url: 'https://repl.it/public/images/replit-logo-800x600.png',
-    // thumbnail_width: 800,
-    // thumbnail_height: 600,
     width,
     height,
     html: `<iframe src="${embedUrl}" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts" width="${width}" height="${height}" frameborder="0"></iframe>`
