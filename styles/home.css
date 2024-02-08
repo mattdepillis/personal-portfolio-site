@@ -1,0 +1,22 @@
+/* color header blue */
+.notion-block-89c2b6cf87f04e5487443f5cd5d3a469 {
+  margin: auto;
+  color: rgb(110, 154, 190);
+}
+
+/* color header yellow-gold when dark mode */
+.dark-mode .notion-block-89c2b6cf87f04e5487443f5cd5d3a469 {
+  color: rgb(214, 199, 140);
+}
+
+/* hide nested pages row block 1 */
+.notion-block-b5e4a07d169a4fb7be45ded189a13dba {
+  display: none;
+}
+
+/* hide nested pages row block 2 */
+.notion-block-002d4a06d4a645a481e620131aa2968c {
+  display: none;
+}
+
+
