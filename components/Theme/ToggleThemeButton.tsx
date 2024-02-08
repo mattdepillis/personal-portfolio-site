@@ -4,7 +4,7 @@ import cs from 'classnames'
 
 // icon imports
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
-import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
+import { IoSunny } from '@react-icons/all-files/io5/IoSunny'
 
 // custom lib methods
 import { useDarkMode } from '@/lib/utils/use-dark-mode'
@@ -30,7 +30,7 @@ const ToggleThemeButton: React.FC = () => {
       className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
       onClick={onToggleTheme}
     >
-      {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+      {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunny />}
     </div>
   )
 }
