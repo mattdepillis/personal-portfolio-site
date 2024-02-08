@@ -7,6 +7,8 @@ import 'styles/global.css'
 // import 'prismjs/themes/prism-okaidia.css'
 // global style overrides for notion
 import 'styles/notion.css'
+// custom
+import 'styles/home.css'
 // global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
 
