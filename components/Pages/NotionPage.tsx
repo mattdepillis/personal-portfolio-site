@@ -22,6 +22,7 @@ import { useDarkMode } from '@/lib/utils/use-dark-mode'
 
 import { Footer } from '../Footer/Footer'
 import { Loading } from '../Loading/Loading'
+import { NestedLink } from '../Links/NestedLink'
 import { NotionPageHeader } from '../Header/NotionPageHeader'
 import { Page404 } from './Page404'
 import { PageHead } from '../Header/PageHead'
@@ -166,6 +167,9 @@ export const NotionPage: React.FC<PageProps> = ({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
 
+  // just for link href mapping
+  const pageTitle: string = block ? getBlockTitle(block, recordMap): ""
+
   const isRootPage =
     parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
 
@@ -181,8 +185,25 @@ export const NotionPage: React.FC<PageProps> = ({
     Header: (props) => <NotionPageHeader {...props} isRootPage={isRootPage} />,
     propertyLastEditedTimeValue,
     propertyTextValue,
-    propertyDateValue
-  }), [isRootPage])
+    propertyDateValue,
+    PageLink: ({
+      href, as, passHref, prefetch,
+      replace, scroll, shallow, locale,
+      ...props
+    }) =>
+      <NestedLink
+        pageTitle={pageTitle}
+        href={href}
+        as={as}
+        passHref={passHref}
+        prefetch={prefetch}
+        replace={replace}
+        scroll={scroll}
+        shallow={shallow}
+        locale={locale}
+        {...props}
+      />
+  }), [isRootPage, pageTitle])
 
   const isBlogPost =
     block?.type === 'page' && block?.parent_table === 'collection'
@@ -258,7 +279,7 @@ export const NotionPage: React.FC<PageProps> = ({
         rootDomain={site.domain}
         fullPage={!isLiteMode}
         previewImages={!!recordMap.preview_images}
-        showCollectionViewDropdown={false}
+        showCollectionViewDropdown={true}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
