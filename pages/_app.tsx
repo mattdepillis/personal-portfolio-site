@@ -9,6 +9,7 @@ import 'styles/global.css'
 import 'styles/notion.css'
 // custom
 import 'styles/home.css'
+import 'styles/media.css'
 // global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
 
