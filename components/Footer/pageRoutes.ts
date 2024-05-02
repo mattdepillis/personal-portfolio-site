@@ -16,7 +16,7 @@ import { PageRoute } from '@/lib/types/footer'
 export const pageRoutes: PageRoute[] = [
   {
     id: 1,
-    href: '/about-me-9721bbd7b07e40769788bee7fe4e1566',
+    href: '/about-9721bbd7b07e40769788bee7fe4e1566',
     role: 'button',
     title: 'About',
     icon: IoFingerPrint
@@ -41,7 +41,7 @@ export const pageRoutes: PageRoute[] = [
     id: 4,
     href: '/career-09ca863431314490bf09e2ba27fed4d8',
     role: 'button',
-    title: 'Resume',
+    title: 'Career',
     icon: FaBriefcase
   },
   {
