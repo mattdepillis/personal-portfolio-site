@@ -11,7 +11,7 @@ export const NestedLink: React.FC<{
   replace: boolean,
   scroll: boolean,
   shallow: boolean,
-  locale: string
+  locale: string,
   [key: string]: any
 }> = ({
   pageTitle,
