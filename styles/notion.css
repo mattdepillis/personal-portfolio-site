@@ -411,6 +411,10 @@ b {
   background: hsla(203, 8%, 20%, 0.9);
 }
 
+.dark-mode .notion-file-icon {
+  fill: white !important;
+}
+
 /* Workaround for Firefox not supporting backdrop-filter yet */
 @-moz-document url-prefix() {
   .dark-mode .notion-header {
