@@ -82,6 +82,13 @@
 .settings,
 .social {
   user-select: none;
+
+  /* customizations to make div horizontally-scrollable on x-axis overflow */
+  overflow-x: scroll !important;
+  max-width: 100% !important;
+  white-space: nowrap;
+  text-align: left;
+  align-items: center !important;
 }
 
 .settings a,
@@ -155,6 +162,9 @@
 @media only screen and (max-width: 566px) {
   .footer {
     flex-direction: column;
+
+    /* customization to leave space on sides of dock menu */
+    max-width: 90%;
   }
 
   .footer > div {
@@ -169,6 +179,21 @@
   }
   .footer .copyright {
     order: 3;
+  }
+
+  .social {
+    /* customization for centering anchor elements within div */
+
+    padding: 0vw 2vw 1vw 2vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social a {
+    /* customization for centering anchor elements within div */
+
+    padding-top: 0em;
+    padding-bottom: 0.25em;
   }
 }
 
