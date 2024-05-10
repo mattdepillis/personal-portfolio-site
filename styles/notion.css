@@ -1,13 +1,11 @@
 /**
- * This file contains site-specifc style overrides for Notion elements from
+ * This file contains site-specific style overrides for Notion elements from
  * react-notion-x.
  *
  * react-notion-x's goal is to match styling as close as possible to Notion,
  * whereas our goal with this site is to adjust Notion's styling in a few key
  * places to add some flare.
  */
-
-/* ** CUSTOM */
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url("https://api.fontshare.com/css?f[]=cabinet-grotesk@400,800&f[]=clash-grotesk@400&display=swap");
@@ -22,12 +20,8 @@ h2 {
 }
 
 .notion-page-no-cover {
-  padding-top: 20px;
+  padding-top: 15px;
 }
-
-
-
-/* ** END CUSTOM */
 
 .notion {
   --notion-max-width: 720px;
@@ -45,6 +39,7 @@ h2 {
 
 .index-page {
   --notion-max-width: 900px;
+  /* margin: auto !important; */
 }
 
 .notion-text {
@@ -195,6 +190,22 @@ b {
   }
 }
 
+
+/* customizations for small screens, such as smartphones */
+@media only screen and (max-width: 566px) {
+  .notion-page {
+    width: 90%;
+  }
+
+  .notion-list-collection {
+    width: 90% !important;
+  }
+
+  .notion-list-item-body {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .notion-search-button {
     display: none !important;
@@ -246,7 +257,7 @@ b {
   .notion-page-cover-wrapper,
   .notion-page-cover-wrapper span,
   .notion-page-cover-wrapper img {
-    border-radius: 0;
+    width: 90%;
   }
 }
 
@@ -448,6 +459,6 @@ b {
   color: var(--fg-color-2);
 }
 
-.notion-equation.notion-equation-block{
+.notion-equation.notion-equation-block {
   align-items: center;
 }
