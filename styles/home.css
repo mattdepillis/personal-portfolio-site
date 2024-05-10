@@ -19,4 +19,18 @@
   display: none;
 }
 
+/* customizations for small screens, such as smartphones */
+@media only screen and (max-width: 566px) {
+  .notion-title {
+    font-size: 2.5em;
+  }
+  .notion-block-89c2b6cf87f04e5487443f5cd5d3a469 {
+    font-size: 1.25em;
+  }
+}
 
+@media only screen and (min-width: 1500px) and (min-height: 850px) {
+  .notion-page-no-cover {
+    padding-top: 6vh !important;
+  }
+}
