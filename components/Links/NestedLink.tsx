@@ -1,7 +1,11 @@
-import * as React from 'react'
-
+// imports
 import Link from 'next/link'
 
+/**
+ * Method that grabs a nested url from a Notion database entry and sets it as the entry's href.
+ * This is useful for databases such as my Media page reading list, for which I want to make each
+ * database entry link out to the actual article URL, rather than the Notion database entry page url.
+ */
 export const NestedLink: React.FC<{
   pageTitle: string,
   href: string,
