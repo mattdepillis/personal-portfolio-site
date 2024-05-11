@@ -1,5 +1,4 @@
 // classnames
-import * as React from 'react'
 import cs from 'classnames'
 
 // react-notion-x lib imports
@@ -12,7 +11,10 @@ import { NavLink } from '@/lib/types/header'
 import styles from '../styles.module.css'
 
 /**
- * TODO function comment here - note that this is for custom navigation if I decide to go that route
+ * A React functional component that enables custom navigation links in the page header.
+ * NOTE: I do not use this for site v=1; this is here for future optionality.
+ * @param {NavLink[]} navigationLinks - a list of navigation links objects to be rendered within the page header.
+ * @return {React.FC<Props>} - a custom functional component containing nav links.
  */
 const CustomNavLinks: React.FC<{
   navigationLinks : NavLink[]
