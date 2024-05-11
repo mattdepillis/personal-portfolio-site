@@ -46,7 +46,6 @@ export const Footer: React.FC = () => {
     setHasMounted(true)
   }, [])
 
-
   return (
     <footer className={footerClasses}>
       <div className={styles.social}>

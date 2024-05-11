@@ -7,7 +7,7 @@ export interface PageRoute {
   href: string
   role: string
   title: string
-  icon?: IconType
-  fontAwesomeIcon?: typeof FontAwesomeIcon
-  fontAwesomeIconType?: IconDefinition
+  icon?: IconType // defined if react-icon
+  fontAwesomeIcon?: typeof FontAwesomeIcon // defined if fontawesome
+  fontAwesomeIconType?: IconDefinition // defined if fontawesome
 }

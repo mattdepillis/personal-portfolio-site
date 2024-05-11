@@ -12,7 +12,9 @@ import { IoFingerPrint } from '@react-icons/all-files/io5/IoFingerPrint'
 // custom types + interfaces
 import { PageRoute } from '@/lib/types/footer'
 
-
+/**
+ * Dock menu page routes and associated icons for display.
+ */
 export const pageRoutes: PageRoute[] = [
   {
     id: 1,
