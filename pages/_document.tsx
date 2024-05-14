@@ -30,6 +30,7 @@ export default class MyDocument extends Document {
   var classNameDark = 'dark-mode'
   var classNameLight = 'light-mode'
   function setClassOnDocumentBody(darkMode) {
+    console.log('darkMode in setClassOnDocumentBody: ', darkMode)
     document.body.classList.add(darkMode ? classNameDark : classNameLight)
     document.body.classList.remove(darkMode ? classNameLight : classNameDark)
   }
@@ -56,6 +57,12 @@ export default class MyDocument extends Document {
     // source of truth from document.body
     var isDarkMode = document.body.classList.contains(classNameDark)
     localStorage.setItem(storageKey, JSON.stringify(isDarkMode))
+
+    // additional code for debugging
+    localStorageTheme = localStorage.getItem(storageKey)
+    localStorageTheme = JSON.parse(localStorageTheme)
+    console.log('my localstoragetheme: ', localStorageTheme)
+    setClassOnDocumentBody(localStorageTheme)
   }
 })();
 `
