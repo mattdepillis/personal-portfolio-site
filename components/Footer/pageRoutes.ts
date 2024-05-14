@@ -18,14 +18,14 @@ import { PageRoute } from '@/lib/types/footer'
 export const pageRoutes: PageRoute[] = [
   {
     id: 1,
-    href: '/about-9721bbd7b07e40769788bee7fe4e1566',
+    href: '/about',
     role: 'button',
     title: 'About',
     icon: IoFingerPrint
   },
   {
     id: 2,
-    href: '/writing-1161cb246e014c0e9b0fbef369998df7',
+    href: '/writing',
     role: 'button',
     title: 'Writing',
     fontAwesomeIcon: FontAwesomeIcon,
@@ -33,7 +33,7 @@ export const pageRoutes: PageRoute[] = [
   },
   {
     id: 3,
-    href: '/projects-5265624e897544b892e70b3fd90044a5',
+    href: '/projects',
     role: 'button',
     title: 'Projects',
     fontAwesomeIcon: FontAwesomeIcon,
@@ -41,21 +41,21 @@ export const pageRoutes: PageRoute[] = [
   },
   {
     id: 4,
-    href: '/career-09ca863431314490bf09e2ba27fed4d8',
+    href: '/career',
     role: 'button',
     title: 'Career',
     icon: FaBriefcase
   },
   {
     id: 5,
-    href: '/media-c07d64a7e5034b799d5c9c48a7400d21',
+    href: '/media',
     role: 'button',
     title: 'Media',
     icon: FaCompactDisc
   },
   {
     id: 6,
-    href: '/art-a1ac252b0c4d410183337252ecaf5626',
+    href: '/art',
     role: 'button',
     title: 'Art',
     icon: FaPalette
