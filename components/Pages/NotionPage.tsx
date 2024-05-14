@@ -211,8 +211,8 @@ export const NotionPage: React.FC<PageProps> = ({
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  // const footer = useMemo(() => <Footer />, [])
-  const footer = <Footer />
+  const footer = useMemo(() => <Footer />, [])
+  // const footer = <Footer />
 
   if (router.isFallback) {
     return <Loading />
