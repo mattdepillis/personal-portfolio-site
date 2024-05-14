@@ -29,7 +29,7 @@ export const FooterComponent: React.FC = () => {
 
   // footer classnames dynamically created; dependent on dark mode
   const footerClasses = classNames(styles.footer, {
-    [styles.footerDarkMode]: isDarkMode
+    [styles.darkModeFooter]: isDarkMode
   })
 
   // page route classnames dynamically created; dependent on dark mode
