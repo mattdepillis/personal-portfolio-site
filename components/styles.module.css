@@ -70,8 +70,8 @@
 
 /* dark mode styling overrides for the footer */
 .darkModeFooter {
-  background: hsla(203, 8%, 20%, 0.9) !important;
-  box-shadow: rgba(236, 240, 242, 0.12) 0px 2px 4px 0px, rgba(236, 240, 242, 0.32) 0px 2px 16px 0px;;
+  background: hsla(203, 8%, 20%, 0.9);
+  box-shadow: rgba(236, 240, 242, 0.12) 0px 2px 4px 0px, rgba(236, 240, 242, 0.32) 0px 2px 16px 0px;
 }
 
 .copyright {
