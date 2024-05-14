@@ -46,6 +46,10 @@ export const FooterComponent: React.FC = () => {
     setHasMounted(true)
   }, [])
 
+  useEffect(() => {
+    console.log("dark mode in the footer : ", isDarkMode)
+  }, [isDarkMode])
+
   return (
     <footer className={footerClasses}>
       <div className={styles.social}>
