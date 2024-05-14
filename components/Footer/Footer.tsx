@@ -1,5 +1,5 @@
 // imports
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import classNames from 'classnames'
 
 // social icons
@@ -23,7 +23,7 @@ import styles from '../styles.module.css'
 import { pageRoutes } from './pageRoutes'
 
 
-export const Footer: React.FC = () => {
+export const FooterComponent: React.FC = () => {
   const [hasMounted, setHasMounted] = useState<boolean>(false)
   const { isDarkMode, toggleDarkMode } = useDarkMode()
 
@@ -122,4 +122,4 @@ export const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+export const Footer = memo(FooterComponent)
