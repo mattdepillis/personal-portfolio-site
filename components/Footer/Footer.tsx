@@ -51,10 +51,10 @@ export const FooterComponent: React.FC = () => {
   }, [isDarkMode])
 
   return (
-    <footer className={footerClasses}>
-      <div className={styles.social}>
-        {hasMounted && (
-          <>
+    <>
+      {hasMounted && (
+        <footer className={footerClasses}>
+          <div className={styles.social}>
             {pageRoutes.map((route, i) => (
               <a
                 key={i}
@@ -119,10 +119,10 @@ export const FooterComponent: React.FC = () => {
             >
               {isDarkMode ? <IoMoonSharp /> : <IoSunny />}
             </a>
-          </>
-        )}
-      </div>
-    </footer>
+          </div>
+        </footer>
+      )}
+    </>
   )
 }
 
