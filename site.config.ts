@@ -35,6 +35,9 @@ export default siteConfig({
   // environment variables. see the readme for more info
   isRedisEnabled: false,
 
+  // disables page Id from inclusion in production page urls
+  includeNotionIdInUrls: false,
+
   // map of notion page IDs to URL paths (optional)
   // any pages defined here will override their default URL paths
   // example:
