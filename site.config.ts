@@ -9,8 +9,8 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'Next.js Notion Starter Kit',
-  domain: 'mattdepillis.me',
+  name: 'Matt DePillis',
+  domain: 'www.mattdepillis.com',
   author: 'Matt DePillis',
 
   // open graph metadata (optional)
