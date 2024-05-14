@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Next.js Notion Starter Kit',
-  domain: 'mattdepillis.xyz',
+  domain: 'mattdepillis.me',
   author: 'Matt DePillis',
 
   // open graph metadata (optional)
