@@ -184,7 +184,7 @@
   .social {
     /* customization for centering anchor elements within div */
 
-    padding: 0vw 2vw 1vw 2vw;
+    padding: 2vw 2vw 0vw 2vw;
     align-items: center;
     justify-content: center;
   }
