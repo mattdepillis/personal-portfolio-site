@@ -39,8 +39,20 @@
   }
 }
 
-@media only screen and (min-width: 1500px) and (min-height: 950px) {
+@media only screen and (min-height: 950px) {
   .notion-page-no-cover {
     padding-top: 8vh !important;
+  }
+}
+
+@media only screen and (min-height: 1050px) {
+  .notion-page-no-cover {
+    padding-top: 10vh !important;
+  }
+}
+
+@media only screen and (min-height: 1150px) {
+  .notion-page-no-cover {
+    padding-top: 12vh !important;
   }
 }
