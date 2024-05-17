@@ -8,9 +8,7 @@
 
 My first production-quality project, this website has been years in the making. The about page of this site, linked below, discusses the inspiration behind the creation of this site and the journey I’ve undertaken to create something I’m thematically proud of.
 
-<aside>
-  <img src="/icons/link_gray.svg" alt="/icons/link_gray.svg" width="40px" /> [About](https://www.mattdepillis.com/about)
-</aside>
+[About](https://www.mattdepillis.com/about)
 
 ## Design + Engineering Decisions
 
