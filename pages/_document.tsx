@@ -8,17 +8,29 @@ export default class MyDocument extends Document {
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
         <Html lang='en'>
           <Head>
-            <link rel='shortcut icon' href='/cartoon-me.png' />
+
+            {/* website tab icon links */}
+
+            <link rel='shortcut icon' href='/cartoon-me-32.png' />
             <link
               rel='icon'
               type='image/png'
               sizes='32x32'
-              href='cartoon-me.png'
+              href='cartoon-me-32.png'
             />
 
-            <link href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap' rel="stylesheet" />
-            <link href='https://api.fontshare.com/css?f[]=cabinet-grotesk@400,800&f[]=clash-grotesk@400&display=swap' rel="stylesheet" />
+            {/* font links - necessary for vercel production deployment */}
 
+            <link
+              href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'
+              rel="stylesheet"
+            />
+            <link
+              href='https://api.fontshare.com/css?f[]=cabinet-grotesk@400,800&f[]=clash-grotesk@400&display=swap'
+              rel="stylesheet"
+            />
+
+            {/* manifest - website logos of different sizes */}
 
             <link rel='manifest' href='/manifest.json' />
           </Head>
