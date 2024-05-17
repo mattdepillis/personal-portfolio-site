@@ -38,3 +38,9 @@
     padding-top: 6vh !important;
   }
 }
+
+@media only screen and (min-width: 1500px) and (min-height: 850px) {
+  .notion-page-no-cover {
+    padding-top: 8vh !important;
+  }
+}
